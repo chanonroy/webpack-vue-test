@@ -16,7 +16,7 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            scss: 'style-loader!css-loader!postcss-loader!sass-loader'
+            scss: 'style-loader!css-loader!sass-loader'
           }
         }
       },
