@@ -5,7 +5,7 @@
   "author": "Chanon Roy <chanonroy@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot",
+    "dev": "webpack-dev-server --hot",
     "build": "webpack --config webpack.prod.config.js --progress --hide-modules"
   },
   "dependencies": {

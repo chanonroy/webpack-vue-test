@@ -2,14 +2,24 @@ let webpack = require('webpack');
 let config = require('./webpack.config.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-config.devtool = '#source-map'; // smaller source maps
-config.module.rules[0].options.loaders = { // extract text
+// smaller source maps
+config.devtool = '#source-map';
+
+// autoprefix with postCSS
+config.module.rules[0].options = {
+  postcss: [require('autoprefixer')({ browsers: ['last 2 versions'] })]
+};
+
+ // extract text plugin on vue.js scss
+config.module.rules[0].options.loaders = {
   scss: ExtractTextPlugin.extract({
     loader: 'css-loader!postcss-loader!sass-loader',
     fallbackLoader: 'vue-style-loader'
   })
 };
-config.plugins = (config.plugins || []).concat([ // add plugins
+
+// production plugins
+config.plugins = (config.plugins || []).concat([
   new webpack.optimize.UglifyJsPlugin({ // minify JS
     sourceMap: true,
     compress: {

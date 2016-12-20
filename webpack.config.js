@@ -43,6 +43,7 @@ module.exports = {
   devServer: { // config for webpack dev server
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
+    inline: true,
     noInfo: true
   }
 };

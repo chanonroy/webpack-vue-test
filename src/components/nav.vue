@@ -26,6 +26,7 @@ export default {
 <style lang="scss" scoped>
 $color-red: orange;
 .nav {
+  display: flex;
   background-color: $color-red;
 }
 </style>
