@@ -13,7 +13,7 @@ config.module.rules[0].options = {
  // extract text plugin on vue.js scss
 config.module.rules[0].options.loaders = {
   scss: ExtractTextPlugin.extract({
-    loader: 'css-loader!postcss-loader!sass-loader',
+    loader: 'css-loader!sass-loader',
     fallbackLoader: 'vue-style-loader'
   })
 };
@@ -29,7 +29,7 @@ config.plugins = (config.plugins || []).concat([
   new webpack.LoaderOptionsPlugin({
     minimize: true
   }),
-  new ExtractTextPlugin("style.css")
+  new ExtractTextPlugin("[name].css")
 ]);
 
 module.exports = config;
