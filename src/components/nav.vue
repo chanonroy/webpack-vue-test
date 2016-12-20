@@ -27,6 +27,7 @@ export default {
 $color-red: orange;
 .nav {
   display: flex;
+  justify-content: center;
   background-color: $color-red;
 }
 </style>

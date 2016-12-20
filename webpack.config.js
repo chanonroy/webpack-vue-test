@@ -6,7 +6,6 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
     filename: 'build.js'
   },
   module: {
@@ -44,6 +43,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     inline: true,
-    noInfo: true
+    stats: 'errors-only',
+    noInfo: false
   }
 };
