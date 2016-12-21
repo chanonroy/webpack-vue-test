@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -30,7 +31,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: '[name].[ext]'
         }
       }
     ]
@@ -47,5 +48,15 @@ module.exports = {
     inline: true,
     stats: 'errors-only',
     noInfo: false
-  }
+  },
+  plugins: [
+
+    new HtmlWebpackPlugin({ // adds bundle to HTML
+      template: path.join(__dirname, 'templates', 'index.html'),
+      filename: 'index.html', // which template
+      chunks: ['main'], // which bundles to add
+      // hash: true
+    })
+
+  ]
 };

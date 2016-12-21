@@ -4,8 +4,9 @@
   <div class="l-jumbotron">
     <div class="l-container">
       <div class="jumbotron">
-        <h1> Vue App Test </h1>
-        <h3> This is an example of Vue components working in sync. </h3>
+        <h1> {{ title }} </h1>
+        <h3> {{ message }} </h3>
+        <img src="../assets/santa-claus.svg" alt="santa">
       </div>
     </div>
   </div>
@@ -17,8 +18,8 @@
   export default {
     data() {
       return {
-        title: 'VueApp',
-        message: 'App to test out Vue.js'
+        title: 'Vue Application Test',
+        message: 'This is an example of Vue components working in sync.'
       }
     }
   }
@@ -44,6 +45,7 @@
   width: 100%;
   h1 { color: white; margin: 0;}
   h3 { color: lightgrey; }
+  img { height: 100px; }
 }
 
 </style>

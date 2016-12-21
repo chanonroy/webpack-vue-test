@@ -5,13 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // smaller source maps
 config.devtool = '#source-map';
 
-// autoprefix with postCSS
-config.module.rules[0].options = {
+// pointer to vue-loader object
+vueConfig = config.module.rules.filter(x => x.loader === 'vue-loader')[0];
+
+vueConfig.options = { // autoprefix with postCSS
   postcss: [require('autoprefixer')({ browsers: ['last 2 versions'] })]
 };
-
- // extract text plugin on vue.js scss
-config.module.rules[0].options.loaders = {
+vueConfig.options.loaders = { // extract text plugin on vue.js scss
   scss: ExtractTextPlugin.extract({
     loader: 'css-loader!sass-loader',
     fallbackLoader: 'vue-style-loader'
@@ -29,7 +29,7 @@ config.plugins = (config.plugins || []).concat([
   new webpack.LoaderOptionsPlugin({
     minimize: true
   }),
-  new ExtractTextPlugin("[name].css")
+  new ExtractTextPlugin("[name].min.css")
 ]);
 
 module.exports = config;
